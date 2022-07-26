@@ -1,0 +1,50 @@
+@import url('https://css.gg/trash.css');
+
+.note-list-item-delete-button{
+    border: none;
+    border-radius: 3px;
+    box-shadow: 3px 3px;
+    cursor: pointer;
+    margin: auto;
+    padding: 4px 7px 4px 7px;
+
+    transition: transform .1s, box-shadow .1s;
+}
+
+.note-list-item-delete-button:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 3px;
+}
+
+.note-list-item-trash-icon{
+    margin: 5px;
+}
+
+.note-list-item-parent{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: left;
+    grid-gap: 10px;
+}
+
+.note-list-item-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 3px;
+    box-shadow: 4px 4px;
+    cursor: pointer;
+
+    background-color: #EEEEEE;
+
+    padding: 4px 7px 4px 7px;
+
+    transition: transform .1s, box-shadow .1s;
+}
+
+.note-list-item-name:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 9px 9px 3px;
+}
+

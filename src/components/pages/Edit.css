@@ -1,0 +1,71 @@
+.edit-form{
+    display: grid;
+    row-gap: 15px;
+    background-color: #EFB7B7;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 6px 6px #362828;
+}
+
+.edit-note-name{
+    border: none;
+    outline: none;
+    padding: 7px 12px 7px 12px;
+    border-radius: 5px;
+    box-shadow: 4px 4px #362828;
+    font-size: 20px;
+    text-align: center;
+    
+    margin: auto;
+
+    transition: transform .1s, box-shadow .1s;
+
+    font-family: 'Lobster', cursive;
+}
+
+.edit-note-name:focus{
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 3px #574141;
+}
+
+.edit-note-body{
+    border: none;
+    outline: none;
+    padding: 7px 12px 7px 12px;
+    border-radius: 5px;
+    box-shadow: 4px 4px #362828;
+    transition: transform .1s, box-shadow .1s;
+    font-family: 'Lobster', cursive;
+}
+
+.edit-note-body:focus{
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 3px #574141;
+}
+
+.edit-note-submit{
+
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+
+    
+    border: none;
+    padding: 7px 12px 7px 12px;
+    border-radius: 5px;
+    box-shadow: 4px 4px #362828;
+    cursor: pointer;
+    overflow:hidden;
+
+    width: 100px;
+    margin: auto;
+
+    transition: transform .1s, box-shadow .1s;
+
+    
+}
+
+.edit-note-submit:hover{
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 3px#362828;
+}

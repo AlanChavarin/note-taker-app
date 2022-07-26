@@ -1,0 +1,9 @@
+.about-parent {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    background-color: #BD4B4B;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 4px 4px;
+}

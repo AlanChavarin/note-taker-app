@@ -1,0 +1,54 @@
+@import url('https://css.gg/notes.css');
+
+.navbar-parent {
+    display: flex;
+    align-items: center;
+    background-color: #BD4B4B;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 6px 6px;
+}
+
+.navbar-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 80%;
+    margin: auto;
+}
+
+.navbar-grid-item{
+    text-align: center;
+}
+
+.navbar-title {
+    font-size: 25px;
+    background-color: #EEEEEE;
+    margin: auto;
+    padding: 5px 15px 5px 15px;
+    border-radius: 7px;
+    box-shadow: 5px 5px;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+}
+
+.navbar-note-icon{
+    margin: auto;
+    box-shadow: 1px 1px;
+}
+
+.navbar-link{
+    background-color: #EEEEEE;
+    margin: auto;
+    padding: 5px 15px 5px 15px;
+    font-size: 20px;
+    border-radius: 7px;
+    box-shadow: 5px 5px;
+    transition: transform .1s, box-shadow .1s;
+}
+
+.navbar-link:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 3px;
+}

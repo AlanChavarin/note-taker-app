@@ -1,0 +1,17 @@
+.footer-parent {
+    display: flex;
+    justify-content: center;
+    background-color: #BD4B4B;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 3px 3px;
+}
+
+.footer-copyright {
+    background-color: #EEEEEE;
+    margin: auto;
+    padding: 5px 10px 5px 10px;
+    border-radius: 6px;
+    box-shadow: 5px 5px;
+}
+

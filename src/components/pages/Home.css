@@ -1,0 +1,43 @@
+@import url('https://css.gg/add-r.css');
+
+.home-parent {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 30px;
+    background-color: #BD4B4B;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 6px 6px;
+}
+
+.home-h3{
+    text-align: center;
+
+}
+
+.home-button{
+
+    background-color: #EEEEEE;
+    border: none;
+    padding: 7px 12px 7px 12px;
+    font-size: larger;
+    border-radius: 6px;
+    box-shadow: 5px 5px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+
+    cursor:pointer;
+
+    transition: transform .1s, box-shadow .1s;
+}
+
+.home-add-icon{
+    box-shadow: 1px 1px;
+}
+
+.home-button:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 3px;
+}
