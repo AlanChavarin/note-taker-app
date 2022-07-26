@@ -26,10 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 5000",
+    "server": "npx json-server --watch db.json --port 5000",
     "dev": "concurrently \"npm run server\" \"npm start\"",
     "fullbuild": "concurrently \"npm run build\" \"npm run server\""
-
   },
   "eslintConfig": {
     "extends": [
