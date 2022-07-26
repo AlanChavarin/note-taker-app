@@ -19,7 +19,7 @@ function Edit() {
         gsap.from(form.current, {x: "-700px"})
         gsap.to(form.current, {duration: 1, x: "0px", ease: "bounce"})
 
-        fetch(`http://localhost:5000/notes/${id}`)
+        fetch(`https://jsonserver22.herokuapp.com/database/${id}`)
         .then((r) => r.json())
         .then((data) => {
             setFetchedNote(data.text)
@@ -35,7 +35,7 @@ function Edit() {
         e.preventDefault()
         const value = e.target.querySelector("#note-body").value
         const valueName = e.target.querySelector("#note-name").value
-        fetch(`http://localhost:5000/notes/${id}`, {
+        fetch(`https://jsonserver22.herokuapp.com/database/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json'

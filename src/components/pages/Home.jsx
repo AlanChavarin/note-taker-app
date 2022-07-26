@@ -11,7 +11,7 @@ function Home() {
     const [createNewNoteIconState, setCreateNewNoteIconState] = useState(0)
 
     const fetchData = () => {
-        fetch(`http://localhost:5000/notes`)
+        fetch(`https://jsonserver22.herokuapp.com/database`)
         .then((res) => {
             if(!res.ok){
                 throw Error('Could not fetch data from server')
@@ -35,7 +35,7 @@ function Home() {
 
     const handleAddNewNote = () => {
         setCreateNewNoteIconState(1)
-        fetch(`http://localhost:5000/notes`, {
+        fetch(`https://jsonserver22.herokuapp.com/database`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -55,7 +55,7 @@ function Home() {
 
     const handleDeleteNote = (e, id) => {
         e.preventDefault()
-        fetch(`http://localhost:5000/notes/${id}`, {
+        fetch(`https://jsonserver22.herokuapp.com/database/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-type': 'json/application'
