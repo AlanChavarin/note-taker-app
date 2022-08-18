@@ -5,13 +5,13 @@ import { gsap } from 'gsap'
 import ClipLoader from "react-spinners/ClipLoader"
 
 function Home() {
+    const API_URL = 'http://localhost:5000/api/notes/'
     const homeParent = useRef()
-
     const [notesArray, setNotesArray] = useState([])
     const [createNewNoteIconState, setCreateNewNoteIconState] = useState(0)
 
     const fetchData = () => {
-        fetch(`https://jsonserver22.herokuapp.com/database`)
+        fetch(API_URL)
         .then((res) => {
             if(!res.ok){
                 throw Error('Could not fetch data from server')
@@ -35,7 +35,7 @@ function Home() {
 
     const handleAddNewNote = () => {
         setCreateNewNoteIconState(1)
-        fetch(`https://jsonserver22.herokuapp.com/database`, {
+        fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -55,11 +55,15 @@ function Home() {
 
     const handleDeleteNote = (e, id) => {
         e.preventDefault()
-        fetch(`https://jsonserver22.herokuapp.com/database/${id}`, {
+        console.log(id)
+        fetch(API_URL, {
             method: 'DELETE',
             headers: {
-                'Content-type': 'json/application'
-            }
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "id": id
+            })
         })
         .then((res) => {
             if(res.ok){
@@ -71,12 +75,12 @@ function Home() {
     return (
         <div className='home-parent' ref={homeParent}>  
             <button className="home-button" onClick={handleAddNewNote}>
-                {(createNewNoteIconState == 0) && <i className="gg-add-r home-add-icon"></i>}
-                {(createNewNoteIconState == 1) && <ClipLoader />}
+                {(createNewNoteIconState === 0) && <i className="gg-add-r home-add-icon"></i>}
+                {(createNewNoteIconState === 1) && <ClipLoader />}
                 Create Note
                 </button>
             {notesArray.map((notes) => (
-                <NoteListItem handleDeleteNote={handleDeleteNote} key={notes.id} id={notes.id} name={notes.name}/>
+                <NoteListItem handleDeleteNote={handleDeleteNote} key={notes._id} id={notes._id} name={notes.name}/>
             ))}
         </div>
     )

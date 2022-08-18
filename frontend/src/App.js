@@ -16,7 +16,7 @@ function App() {
         <Title />
         <main className='app-container'>
           <Routes>
-            <Route path='/' element={<Home />} /> 
+            <Route path='/' element={<Home/>} /> 
             <Route path='/about' element={<About />} />
             <Route path='/edit/:id' element={<Edit />}/>
             <Route path='/*' element={<NotFound />} />  
