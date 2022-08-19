@@ -6,7 +6,7 @@ import ClipLoader from "react-spinners/ClipLoader"
 import {FaCheck} from 'react-icons/fa'
 
 function Edit() {
-    const API_URL = 'http://localhost:5000/api/notes/'
+    const API_URL = '/api/notes/'
     const [fetchedNote, setFetchedNote] = useState('')
     const [fetchedName, setFetchedName] = useState('')
     const [submitButtonState, setSubmitButtonState] = useState(0)

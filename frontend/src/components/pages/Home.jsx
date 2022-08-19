@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import ClipLoader from "react-spinners/ClipLoader"
 
 function Home() {
-    const API_URL = 'http://localhost:5000/api/notes/'
+    const API_URL = '/api/notes/'
     const homeParent = useRef()
     const [notesArray, setNotesArray] = useState([])
     const [createNewNoteIconState, setCreateNewNoteIconState] = useState(0)
