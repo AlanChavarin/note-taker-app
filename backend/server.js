@@ -15,8 +15,12 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 //connect to database
-mongoose.connect(process.env.URI, () => {
+mongoose.connect(process.env.MONGODB_URI, () => {
     console.log('connected to database!')
 })
 
 app.use('/api/notes', require('./noteRoutes'))
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('frontend/build'))
+}
