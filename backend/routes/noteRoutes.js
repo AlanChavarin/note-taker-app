@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {getNotes, postNote, updateNote, deleteNote, getNote} = require('./noteController')
+const {getNotes, postNote, updateNote, deleteNote, getNote} = require('../controllers/noteController')
 
 router.get('/:id', getNote) 
 

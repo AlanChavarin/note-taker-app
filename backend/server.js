@@ -19,7 +19,8 @@ mongoose.connect(process.env.MONGODB_URI, () => {
     console.log('connected to database!')
 })
 
-app.use('/api/notes', require('./noteRoutes'))
+app.use('/api/notes', require('./routes/noteRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('frontend/build'))

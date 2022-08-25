@@ -1,6 +1,6 @@
 const e = require('express');
 const asyncHandler = require('express-async-handler')
-const Note = require('./noteModel')
+const Note = require('../models/noteModel')
 
 const getNote = asyncHandler(async (req, res) => {
     const note = await Note.find({_id: req.params.id})
