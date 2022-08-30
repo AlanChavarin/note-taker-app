@@ -11,7 +11,7 @@
 
 .navbar-container{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto;
     width: 80%;
     margin: auto;
 }

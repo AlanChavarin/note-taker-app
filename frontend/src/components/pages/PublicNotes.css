@@ -1,6 +1,6 @@
 @import url('https://css.gg/add-r.css');
 
-.home-parent {
+.PublicNotes-parent {
     display: grid;
     grid-template-columns: auto;
     row-gap: 30px;
@@ -10,12 +10,12 @@
     box-shadow: 6px 6px;
 }
 
-.home-h3{
+.PublicNotes-h3{
     text-align: center;
 
 }
 
-.home-button{
+.PublicNotes-button{
 
     background-color: #EEEEEE;
     border: none;
@@ -33,11 +33,11 @@
     transition: transform .1s, box-shadow .1s;
 }
 
-.home-add-icon{
+.PublicNotes-add-icon{
     box-shadow: 1px 1px;
 }
 
-.home-button:hover{
+.PublicNotes-button:hover{
     transform: translate(-5px, -5px);
     box-shadow: 10px 10px 3px;
 }

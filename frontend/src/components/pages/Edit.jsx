@@ -8,12 +8,12 @@ import {FaCheck} from 'react-icons/fa'
 function Edit() {
     let API_URL
     if(process.env.NODE_ENV === 'production'){
-        API_URL = '/api/notes/'
+        API_URL = '/api/privatenotes/'
     } else {
-        API_URL = 'http://localhost:5000/api/notes/'
+        API_URL = 'http://localhost:5000/api/privatenotes/'
     }
-    const [fetchedNote, setFetchedNote] = useState('')
-    const [fetchedName, setFetchedName] = useState('')
+    const [noteName, setNoteName] = useState('')
+    const [noteBody, setNoteBody] = useState('')
     const [submitButtonState, setSubmitButtonState] = useState(0)
     const {id} = useParams()
     const form = useRef()
@@ -26,40 +26,59 @@ function Edit() {
         fetch(API_URL + id, {
             method: 'GET',
             headers: {
-                "Content-type" : "application/json"
+                "Content-type" : "application/json",
+                "authorization": "Bearer " + localStorage.getItem('user')
             }
         })
-        .then((r) => r.json())
+        .then((res) => {
+            return res.json()
+        })
         .then((data) => {
-            setFetchedNote(data[0].text)
-            setFetchedName(data[0].name)
+            if(data.errorMessage){
+                throw new Error(data.errorMessage)
+            } else {
+                setNoteName(data.name)
+                setNoteBody(data.text)
+            }
+        })
+        .catch((error) => {
+            setNoteName('error')
+            setNoteBody(error.message)
         })
 
     }, [])
 
-    
-
     const handleSubmit = (e) => {
         setSubmitButtonState(1)
         e.preventDefault()
-        const value = e.target.querySelector("#note-body").value
-        const valueName = e.target.querySelector("#note-name").value
         fetch(API_URL, {
             method: 'PUT',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "authorization": "Bearer " + localStorage.getItem('user')
             },
             body: JSON.stringify({
-                "text": value,
-                "name": valueName,
+                "name": noteName,
+                "text": noteBody,
                 "id": id
             })
-        }).then((res) => {
+        })
+        .then((res) => {
             if(res.ok){
-                console.log('updated')
                 setSubmitButtonState(2)
             }
+            return res.json()
         })
+        .then((data) => {
+            if(data.errorMessage){
+                throw new Error(data.errorMessage)
+            }
+        })
+        .catch((error) => {
+            setNoteName('error')
+            setNoteBody(error.message)
+        })
+
         setTimeout(() => {
             setSubmitButtonState(0)
         }, 1000)
@@ -68,8 +87,8 @@ function Edit() {
     return (
         <div>
             <form ref={form} className='edit-form' onSubmit={handleSubmit}>
-                <input className="edit-note-name" maxLength="20" type="text" id="note-name" defaultValue={fetchedName} />
-                <textarea className="edit-note-body" name="" id="note-body" cols="40" rows="15" defaultValue={fetchedNote} ></textarea>
+                <input className="edit-note-name" maxLength="20" type="text" value={noteName} onChange={e => setNoteName(e.target.value)}/>
+                <textarea className="edit-note-body" cols="40" rows="15" value={noteBody} onChange={e => setNoteBody(e.target.value)}></textarea>
                 <button className="edit-note-submit" type="submit">
                     {(submitButtonState === 0) && <div>submit</div>}
                     {(submitButtonState === 1) && <ClipLoader size={10}/>}

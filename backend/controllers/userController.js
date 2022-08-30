@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 const registerUser = asyncHandler(async (req, res) => {
     if(!req.body.name || !req.body.email || !req.body.password){
+        console.log(req.body)
         res.status(400)
         throw new Error('Please add all fields')
     }
@@ -22,11 +23,11 @@ const registerUser = asyncHandler(async (req, res) => {
     })
     
     res.status(200).json({
-        _id: newlyCreatedUser._id,
+        //_id: newlyCreatedUser._id,
         name: newlyCreatedUser.name,
         email: newlyCreatedUser.email,
         token: jwt.sign(newlyCreatedUser._id.toJSON(), process.env.JWT_SECRET),
-        password: hashedPassword
+        //password: hashedPassword
     })
 })
 
@@ -34,9 +35,9 @@ const loginUser = asyncHandler(async (req, res) => {
     const userThatsLoggingIn = await User.findOne({email: req.body.email})
     if(userThatsLoggingIn && (await bcrypt.compare(req.body.password, userThatsLoggingIn.password))){
         res.json({
-            _id: userThatsLoggingIn._id,
-            name: userThatsLoggingIn.name,
-            email: userThatsLoggingIn.email,
+            //_id: userThatsLoggingIn._id,
+            //name: userThatsLoggingIn.name,
+            //email: userThatsLoggingIn.email,
             token: jwt.sign(userThatsLoggingIn._id.toJSON(), process.env.JWT_SECRET),
         })
     } else {
@@ -46,7 +47,10 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const getMe = asyncHandler(async (req, res) => {
-    res.status(200).json(req.user)
+    res.status(200).json({
+        name: req.user.name,
+        email: req.user.email
+    })
 })
 
 module.exports = {
