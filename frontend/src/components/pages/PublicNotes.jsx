@@ -7,9 +7,9 @@ import ClipLoader from "react-spinners/ClipLoader"
 function PublicNotes() {
     let API_URL
     if(process.env.NODE_ENV === 'production'){
-        API_URL = '/api/notes/'
+        API_URL = '/api/publicnotes/'
     } else {
-        API_URL = 'http://localhost:5000/api/notes/'
+        API_URL = 'http://localhost:5000/api/publicnotes/'
     }
     
     const PublicNotesParent = useRef()
@@ -53,13 +53,11 @@ function PublicNotes() {
         fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json',
-                'Public': 'true'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify({
                 text: "New public note body.",
-                name: "New public note!",
-                public: true
+                name: "New public note!"
             })
         })
         .then((res) => {
@@ -85,8 +83,7 @@ function PublicNotes() {
         fetch(API_URL, {
             method: 'DELETE',
             headers: {
-                'Content-type': 'application/json',
-                'Public': 'true'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify({
                 "id": id
@@ -118,7 +115,7 @@ function PublicNotes() {
                     Create Note
                     </button>
                 {notesArray.map((notes) => (
-                    <NoteListItem handleDeleteNote={handleDeleteNote} key={notes._id} id={notes._id} name={notes.name}/>
+                    <NoteListItem handleDeleteNote={handleDeleteNote} key={notes._id} id={notes._id} name={notes.name} isPublic={true}/>
                 ))}
             </div>
             <div>{status}</div>

@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGODB_URI, () => {
 })
 
 app.use('/api/privatenotes', require('./routes/privateNoteRoutes'))
+app.use('/api/publicnotes', require('./routes/publicNoteRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)

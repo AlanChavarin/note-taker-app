@@ -5,6 +5,7 @@ import PublicNotes from './components/pages/PublicNotes'
 import About from './components/pages/About'
 import NotFound from './components/pages/NotFound'
 import Edit from './components/pages/Edit'
+import EditPublic from './components/pages/EditPublic'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Title from './components/layout/Title'
 import Register from './components/pages/Register'
@@ -24,6 +25,7 @@ function App() {
             <Route path='/yournotes' element={<YourNotes/>} /> 
             <Route path='/about' element={<About />} />
             <Route path='/edit/:id' element={<Edit />}/>
+            <Route path='/editpublic/:id' element={<EditPublic />}/>
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/me' element={<MyProfile />} />

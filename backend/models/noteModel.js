@@ -7,7 +7,10 @@ const noteSchema = mongoose.Schema({
     },
     text: String,
     owner: ObjectId,
-    public: Boolean
+    public: {
+        type: Boolean,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Notes', noteSchema)

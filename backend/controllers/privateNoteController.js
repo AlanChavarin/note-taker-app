@@ -1,4 +1,3 @@
-const e = require('express');
 const asyncHandler = require('express-async-handler')
 const Note = require('../models/noteModel')
 
@@ -27,7 +26,8 @@ const getNotes = asyncHandler(async (req, res) => {
 })
 
 const postNote = asyncHandler(async (req, res) => {
-    console.log(req.body)
+    //console.log('test')
+    //console.log(req.body)
     if(!req.body.name){
     res.status(400)
     throw new Error('Please add a name field')
@@ -36,7 +36,8 @@ const postNote = asyncHandler(async (req, res) => {
     const note = await Note.create({
         name: req.body.name,
         text: req.body.text,
-        owner: req.user._id
+        owner: req.user._id,
+        public: false
     })
 
     res.status(200).json(note)
