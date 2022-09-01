@@ -1,5 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
-import './Title.css'
+import './styles/Title.css'
 
 function Title() {
   return (
@@ -18,6 +18,6 @@ function Title() {
         </h1>
     </div>
   )
-}
+ }
 
 export default Title

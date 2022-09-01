@@ -1,4 +1,4 @@
-import './PublicNotes.css'
+import './styles/YourNotes.css'
 import {useState, useEffect, useRef} from 'react'
 import NoteListItem from '../assets/NoteListItem'
 import { gsap } from 'gsap'

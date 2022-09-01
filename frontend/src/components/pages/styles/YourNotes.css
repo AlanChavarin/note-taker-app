@@ -1,17 +1,19 @@
 @import url('https://css.gg/add-r.css');
 
 .YourNotes-parent {
-    display: grid;
-    grid-template-columns: auto;
-    row-gap: 30px;
-    background-color: #BD4B4B;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
     padding: 25px;
+
+    background-color: #BD4B4B;
+    
     border-radius: 10px;
     box-shadow: 6px 6px;
 }
 
 .YourNotes-h3{
-    text-align: center;
 
 }
 
@@ -24,9 +26,8 @@
     border-radius: 6px;
     box-shadow: 5px 5px;
 
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 10px;
+    display: flex;
+    gap: 15px;
 
     cursor:pointer;
 

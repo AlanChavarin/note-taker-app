@@ -1,4 +1,4 @@
-import './Register.css'
+import './styles/Register.css'
 import {useState} from 'react'
 
 function Register() {
