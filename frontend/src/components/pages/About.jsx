@@ -7,8 +7,8 @@ function About() {
   const about = useRef()
 
   useEffect(() => {
-    gsap.from(about.current, {x: "-700px"});
-    gsap.to(about.current, {duration: 1, x: "0px", ease: "bounce"});
+    gsap.from(about.current, {y: "100vh"});
+    gsap.to(about.current, {duration: 1, y: "0vh"});
   })
 
   return (

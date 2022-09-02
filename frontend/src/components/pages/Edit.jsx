@@ -5,12 +5,20 @@ import { gsap } from 'gsap'
 import ClipLoader from "react-spinners/ClipLoader"
 import {FaCheck} from 'react-icons/fa'
 
-function Edit() {
+function Edit({isPublic}) {
     let API_URL
     if(process.env.NODE_ENV === 'production'){
-        API_URL = '/api/privatenotes/'
+        if(isPublic){
+            API_URL = '/api/publicnotes/'
+        } else {
+            API_URL = '/api/privatenotes/'
+        }
     } else {
-        API_URL = 'http://localhost:5000/api/privatenotes/'
+        if(isPublic){
+            API_URL = 'http://localhost:5000/api/publicnotes/'
+        } else {
+            API_URL = 'http://localhost:5000/api/privatenotes/'
+        }
     }
     const [noteName, setNoteName] = useState('')
     const [noteBody, setNoteBody] = useState('')
@@ -20,8 +28,8 @@ function Edit() {
 
     useEffect(() => {
 
-        gsap.from(form.current, {x: "-700px"})
-        gsap.to(form.current, {duration: 1, x: "0px", ease: "bounce"})
+        gsap.from(form.current, {x: "-100vw"})
+        gsap.to(form.current, {duration: 1, x: "0vw", ease: "bounce"})
 
         fetch(API_URL + id, {
             method: 'GET',

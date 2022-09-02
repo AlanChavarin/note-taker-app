@@ -10,12 +10,12 @@ function Navbar() {
             <div>Note Taker App </div>
         </div>
         <Link  
-            to='/publicnotes' 
+            to='/notes/public' 
             className='navbar-grid-item navbar-link'>
             Public Notes
         </Link>
         <Link  
-            to='/yournotes' 
+            to='/notes/private' 
             className='navbar-grid-item navbar-link'>
             Your Notes
         </Link>

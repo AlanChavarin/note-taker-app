@@ -10,8 +10,8 @@ function DeleteButton({id, name, handleDeleteNote, isPublic}) {
                 <button className="note-list-item-delete-button" onClick={(e) => handleDeleteNote(e, `${id}`)}>
                     <i className="gg-trash note-list-item-trash-icon"></i>
                 </button>
-                    {(!isPublic) && <Link className="note-list-item-name" to={`/edit/${id}`}>{name}</Link>}
-                    {(isPublic) && <Link className="note-list-item-name" to={`/editpublic/${id}`}>{name}</Link>}
+                    {(isPublic) && <Link className="note-list-item-name" to={`/edit/public/${id}`}>{name}</Link>}
+                    {(!isPublic) && <Link className="note-list-item-name" to={`/edit/private/${id}`}>{name}</Link>}
             </div>
         </div>
     )

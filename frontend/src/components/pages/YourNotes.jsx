@@ -4,18 +4,32 @@ import NoteListItem from '../assets/NoteListItem'
 import { gsap } from 'gsap'
 import ClipLoader from "react-spinners/ClipLoader"
 
-function YourNotes() {
+function YourNotes({isPublic}) {    
     let API_URL
     if(process.env.NODE_ENV === 'production'){
-        API_URL = '/api/privatenotes/'
+        if(isPublic){
+            API_URL = '/api/publicnotes/'
+        } else {
+            API_URL = '/api/privatenotes/'
+        }
     } else {
-        API_URL = 'http://localhost:5000/api/privatenotes/'
+        if(isPublic){
+            API_URL = 'http://localhost:5000/api/publicnotes/'
+        } else {
+            API_URL = 'http://localhost:5000/api/privatenotes/'
+        }
     }
-    
+
     const YourNotesParent = useRef()
     const [notesArray, setNotesArray] = useState([])
     const [createNewNoteIconState, setCreateNewNoteIconState] = useState(0)
     const [status, setStatus] = useState('')
+
+    useEffect(() => {
+        gsap.from(YourNotesParent.current, {x: "-100vw"})
+        gsap.to(YourNotesParent.current, {duration: 1, x: "0vw", ease: "bounce"})
+        fetchData()
+    }, [isPublic])
 
     const fetchData = () => {
         fetch(API_URL, {
@@ -41,12 +55,6 @@ function YourNotes() {
             console.log(error.message)
         })
     }
-
-    useEffect(() => {
-        gsap.from(YourNotesParent.current, {x: "-700px"})
-        gsap.to(YourNotesParent.current, {duration: 1, x: "0px", ease: "bounce"})
-        fetchData()
-    }, [])
     
 
     const handleAddNewNote = () => {
@@ -109,7 +117,7 @@ function YourNotes() {
                     Create Note
                     </button>
                 {notesArray.map((notes) => (
-                    <NoteListItem handleDeleteNote={handleDeleteNote} key={notes._id} id={notes._id} name={notes.name}/>
+                    <NoteListItem handleDeleteNote={handleDeleteNote} key={notes._id} id={notes._id} name={notes.name} isPublic={isPublic}/>
                 ))}
             </div>
             <div>{status}</div>

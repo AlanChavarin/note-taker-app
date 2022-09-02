@@ -30,4 +30,5 @@ a, a:visited, a:hover, a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }

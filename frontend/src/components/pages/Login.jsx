@@ -1,5 +1,6 @@
-import './styles/Login.css'
-import {useState} from 'react'
+import './styles/Register.css'
+import {useState, useRef, useEffect} from 'react'
+import {gsap} from 'gsap'
 
 function Register() {
     let API_URL
@@ -14,6 +15,12 @@ function Register() {
 
     const [formStatus, setFormStatus] = useState('')
     
+    const form = useRef()
+    
+    useEffect(() =>{
+        gsap.from(form.current, {x: "100vw"})
+        gsap.to(form.current, {duration: 1, x: "0vw", ease: "bounce"})
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -48,12 +55,12 @@ function Register() {
 
     return (
         <div>
-            <form className='register-form' onSubmit={handleSubmit}>
-                <input type="email" placeholder='Email' value={email} 
+            <form className='register-form' onSubmit={handleSubmit} ref={form}>
+                <input className='register-input' type="email" placeholder='Email' value={email} 
                 onChange={e => setEmail(e.target.value)}  required/>
-                <input type="password" placeholder='Password' value={password}
+                <input className='register-input' type="password" placeholder='Password' value={password}
                 onChange={e => setPassword(e.target.value)}  required/>
-                <button type='submit'>Submit</button>
+                <button className='register-button' type='submit'>Submit</button>
             </form>
             <div>{formStatus}</div>
         </div>

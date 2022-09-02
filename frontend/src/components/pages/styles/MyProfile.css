@@ -1,4 +1,11 @@
 .myprofile-parent{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+.myprofile-item{
+    font-size: 30px;
+    font-family: 'Dosis';
+    text-shadow: 5px 5px 10px;
 }

@@ -1,5 +1,6 @@
 import './styles/Register.css'
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
+import {gsap} from 'gsap'
 
 function Register() {
     let API_URL
@@ -16,12 +17,17 @@ function Register() {
     const [password2, setPassword2] = useState('')
 
     const [formStatus, setFormStatus] = useState('')
+
+    const form = useRef()
     
+    useEffect(() =>{
+        gsap.from(form.current, {x: "100vw"})
+        gsap.to(form.current, {duration: 1, x: "0vw", ease: "bounce"})
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(password === password2){
-            //console.log(name, email, password, password2)
             fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -57,18 +63,18 @@ function Register() {
 
     return (
         <div>
-            <form className='register-form' onSubmit={handleSubmit}>
-                <input type="text" placeholder='Name' value={name} 
+            <form className='register-form' onSubmit={handleSubmit} ref={form}>
+                <input className='register-input register-form-item' type="text" placeholder='Name' value={name} 
                 onChange={e => setName(e.target.value)} required/>
-                <input type="email" placeholder='Email' value={email} 
+                <input className='register-input register-form-item' type="email" placeholder='Email' value={email} 
                 onChange={e => setEmail(e.target.value)}  required/>
-                <input type="password" placeholder='Password' value={password}
+                <input className='register-input register-form-item' type="password" placeholder='Password' value={password}
                 onChange={e => setPassword(e.target.value)}  required/>
-                <input type="password" placeholder='Confirm Password' value={password2}
+                <input className='register-input register-form-item' type="password" placeholder='Confirm Password' value={password2}
                 onChange={e => setPassword2(e.target.value)}  required/>
-                <button type='submit'>Submit</button>
+                <button className='register-button register-form-item' type='submit'>Submit</button>
             </form>
-            <div>{formStatus}</div>
+            <div className='register-form-status'>{formStatus}</div>
         </div>
     )
 }

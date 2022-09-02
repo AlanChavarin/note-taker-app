@@ -1,5 +1,6 @@
 import './styles/MyProfile.css'
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
+import {gsap} from 'gsap'
 
 function MyProfile() {
     let API_URL
@@ -12,7 +13,14 @@ function MyProfile() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
 
+    const parent = useRef()
+
     useEffect(() => {
+
+        gsap.from(parent.current, {y: "100vw"})
+        gsap.to(parent.current, {duration: 1, y: "0vw"})
+
+
         const user = localStorage.getItem('user')
         if(user){
             fetch(API_URL, {
@@ -39,9 +47,9 @@ function MyProfile() {
     }, [])
 
     return (
-        <div className='myprofile-parent'>
-            <div>Name: {name}</div>
-            <div>Email: {email}</div>
+        <div className='myprofile-parent' ref={parent}>
+            <div className='myprofile-item'>Name: {name}</div>
+            <div className='myprofile-item'>Email: {email}</div>
         </div>
     )
 }

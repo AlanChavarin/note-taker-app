@@ -1,4 +1,47 @@
 .register-form{
     display: flex;
     flex-direction: column;
+    gap: 20px;
+
+
+
+    background-color: #BD4B4B;
+    padding: 25px;
+    font-family: 'Dosis';
+    border-radius: 10px;
+    box-shadow: 8px 8px;
+}
+
+.register-input{
+    font-size: 20px;
+    font-family: 'Dosis';
+    min-width: 250px;
+    border: none;
+    outline: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+    box-shadow: 5px 5px;
+    transition: .1s;
+}
+
+.register-input:focus{
+    transform: translate(-4px, -4px);
+    box-shadow: 9px 9px 4px #522020;
+}
+
+.register-button{
+    border: none;
+    padding: 7px 12px 7px 12px;
+    border-radius: 5px;
+    box-shadow: 5px 5px;
+    cursor: pointer;
+    align-self: center;
+    font-size: 15px;
+    font-family: 'Dosis';
+    transition: .1s;
+}
+
+.register-button:hover{
+    transform: translate(-4px, -4px);
+    box-shadow: 9px 9px 3px #522020;
 }
