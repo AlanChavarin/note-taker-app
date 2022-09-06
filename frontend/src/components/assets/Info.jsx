@@ -7,10 +7,16 @@ function Info({paragraph}) {
 
     const parent = useRef()
 
-    useEffect(() => {
-        gsap.from(parent.current, {y: "40vw"})
-        gsap.to(parent.current, {duration: 1, y: "0vw", ease: "bounce"})
-    }, [paragraph])
+    // useEffect(() => {
+    //     gsap.from(parent.current, {y: "40vw"})
+    //     gsap.to(parent.current, {duration: 1, y: "0vw", ease: "bounce"})
+    // }, [])
+
+    // const animateInfo = () => {
+    //     gsap.from(parent.current, {y: "40vw"})
+    //     gsap.to(parent.current, {duration: 1, y: "0vw", ease: "bounce"})
+    // }
+
 
     return (
         <div ref={parent} className='info-parent'>

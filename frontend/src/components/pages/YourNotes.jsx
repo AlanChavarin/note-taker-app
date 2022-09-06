@@ -148,9 +148,7 @@ function YourNotes({isPublic}) {
             : 
             <Info paragraph={<p>These are all your private notes! No one else may see these. Make as many as you wish! </p>}/>
             }
-            
         </>
-        
     )
 }
 
