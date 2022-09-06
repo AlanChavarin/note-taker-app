@@ -1,0 +1,44 @@
+.home-parent{
+
+}
+
+.home-h3{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.home-h3icon{
+    box-shadow: 2px 2px;
+}
+
+/* .home-icon{
+    transition: .1s;
+}
+
+.home-p:hover > .home-icon{
+    transform: translate(-2px, -2px);
+}
+
+.home-h3:hover > .home-icon{
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px;
+} */
+
+.home-link{
+    background-color: #EEEEEE;
+    padding: 3px 5px 3px 5px;
+    margin: 0px 3px 0px 3px;
+    border-radius: 7px;
+    box-shadow: 3px 3px;
+    transition: .1s;
+    cursor: pointer;
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.home-link:hover{
+    transform: translate(-3px, -3px); 
+    box-shadow: 6px 6px 3px;
+}

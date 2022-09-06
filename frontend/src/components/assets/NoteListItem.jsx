@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import './NoteListItem.css'
+import './styles/NoteListItem.css'
 
 function DeleteButton({id, name, handleDeleteNote, isPublic}) {
 

@@ -1,0 +1,9 @@
+.mydetails-parent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mydetails-item{
+    font-size: 30px;
+}

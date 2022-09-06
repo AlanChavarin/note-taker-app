@@ -1,6 +1,12 @@
 @import url('https://css.gg/add-r.css');
 
-.YourNotes-parent {
+.yournotes-parent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.yournotes {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -13,11 +19,7 @@
     box-shadow: 6px 6px;
 }
 
-.YourNotes-h3{
-
-}
-
-.YourNotes-button{
+.yournotes-button{
 
     background-color: #EEEEEE;
     border: none;
@@ -34,11 +36,16 @@
     transition: transform .1s, box-shadow .1s;
 }
 
-.YourNotes-add-icon{
+.yournotes-add-icon{
     box-shadow: 1px 1px;
 }
 
-.YourNotes-button:hover{
+.yournotes-button:hover{
     transform: translate(-5px, -5px);
     box-shadow: 10px 10px 3px;
+}
+
+.yournotes-cliploader{
+    max-width: 20px;
+    max-height: 20px;
 }

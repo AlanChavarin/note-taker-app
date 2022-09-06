@@ -1,3 +1,10 @@
+.edit-form-parent{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+
 .edit-form{
     display: grid;
     row-gap: 15px;

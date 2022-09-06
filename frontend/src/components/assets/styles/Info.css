@@ -1,0 +1,10 @@
+.info-parent{
+    position: absolute;
+    right: 10vw;
+    max-width: 25vw;
+    font-size: 20px;
+}
+
+.info-icon{
+    font-size: 35px;
+}

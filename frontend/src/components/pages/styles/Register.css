@@ -1,15 +1,22 @@
+.register-parent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
 .register-form{
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-
 
     background-color: #BD4B4B;
     padding: 25px;
     font-family: 'Dosis';
     border-radius: 10px;
     box-shadow: 8px 8px;
+
+    max-width: 340px;
 }
 
 .register-input{
@@ -39,9 +46,22 @@
     font-size: 15px;
     font-family: 'Dosis';
     transition: .1s;
+    min-width: 100px;
 }
 
 .register-button:hover{
     transform: translate(-4px, -4px);
     box-shadow: 9px 9px 3px #522020;
+}
+
+.register-p{
+    position: absolute;
+    right: 10vw;
+    max-width: 25vw;
+    font-size: 20px;
+}
+
+.registration-info-icon{
+    display: block;
+    font-size: 35px;
 }

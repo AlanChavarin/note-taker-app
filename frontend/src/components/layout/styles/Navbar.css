@@ -21,7 +21,14 @@
     box-shadow: 5px 5px;
 
     display: flex;
-    gap: 10px
+    gap: 10px;
+
+    transition: transform .1s, box-shadow .1s;
+}
+
+.navbar-title:hover{
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 3px;
 }
 
 .navbar-note-icon{
